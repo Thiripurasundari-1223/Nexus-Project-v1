@@ -21,6 +21,10 @@ namespace ProjectManagement.DAL.Repository
         HomeReportData GetResourceBillabilityHomeReport();
         HomeReportData GetResourceAvailabilityHomeReport();
         ResourceAllocation GetResourceByEmployeeId(int projectId, int employeeId);
+        ResourceAllocation GetResourceAllocationById(int resourceAllocationId, int iterationID, int projectId);
+       
+        VersionResourceAllocation GetVersionByID(int? resourceAllocationId);
+      
     }
     public class ResourceAllocationRepository : BaseRepository<ResourceAllocation>, IResouceAllocationRepository
     {
@@ -53,7 +57,7 @@ namespace ProjectManagement.DAL.Repository
             }
             return null;
         }
-        public string ResourceAllocationDuplication(UpdateResourceAllocation pUpdateResourceAllocation)
+   /*     public string ResourceAllocationDuplication(UpdateResourceAllocation pUpdateResourceAllocation)
         {
             List<ResourceAllocation> resourceAllocations = _dbContext.ResourceAllocation.Where(x => x.ProjectId == pUpdateResourceAllocation.ProjectId &&
                                                     x.ResourceAllocationId != pUpdateResourceAllocation.ResourceAllocationId && x.EmployeeId == pUpdateResourceAllocation.EmployeeId).ToList();
@@ -110,7 +114,7 @@ namespace ProjectManagement.DAL.Repository
             }
             return "";
         }
-        public List<int> GetProjectAllocatedResourceList()
+   */     public List<int> GetProjectAllocatedResourceList()
         {
             DateTime lastWeekStartDate = DateTime.Now.AddDays(DayOfWeek.Sunday - DateTime.Now.DayOfWeek).AddDays(-7);
             return _dbContext.ResourceAllocation.Where(x => x.EndDate >= lastWeekStartDate.Date).Select(x => x.EmployeeId == null ? 0 : (int)x.EmployeeId).Distinct().ToList();
@@ -160,5 +164,72 @@ namespace ProjectManagement.DAL.Repository
         {
             return _dbContext.ResourceAllocation.Where(x => x.EmployeeId == employeeId && x.ProjectId == projectId).FirstOrDefault();
         }
+
+        ResourceAllocation IResouceAllocationRepository.GetResourceByEmployeeID(int pEmployeeID)
+        {
+            throw new NotImplementedException();
+        }
+
+        List<ResourceAllocation> IResouceAllocationRepository.GetResourceByProjectID(int pProjectID)
+        {
+            throw new NotImplementedException();
+        }
+
+        ResourceAllocation IResouceAllocationRepository.GetByID(int resourceAllocationId)
+        {
+            throw new NotImplementedException();
+        }
+
+        string IResouceAllocationRepository.ResourceAllocationDuplication(UpdateResourceAllocation pUpdateResourceAllocation)
+        {
+            throw new NotImplementedException();
+        }
+
+        List<int> IResouceAllocationRepository.GetProjectAllocatedResourceList()
+        {
+            throw new NotImplementedException();
+        }
+
+        List<ResourceAllocation> IResouceAllocationRepository.GetAllResourceAllocation()
+        {
+            throw new NotImplementedException();
+        }
+
+        int IResouceAllocationRepository.GetContributionHomeReport(int employeeId)
+        {
+            throw new NotImplementedException();
+        }
+
+        HomeReportData IResouceAllocationRepository.GetResourceBillabilityHomeReport()
+        {
+            throw new NotImplementedException();
+        }
+
+        HomeReportData IResouceAllocationRepository.GetResourceAvailabilityHomeReport()
+        {
+            throw new NotImplementedException();
+        }
+
+        ResourceAllocation IResouceAllocationRepository.GetResourceByEmployeeId(int projectId, int employeeId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public ResourceAllocation GetResourceAllocationById(int resourceAllocationId, int iterationID, int projectId)
+        {
+            if (resourceAllocationId > 0 && resourceAllocationId > 0 && iterationID > 0)
+            {
+                return _dbContext.ResourceAllocation.Where(r => r.IterationID == iterationID && r.ProjectId == projectId && r.ResourceAllocationId == resourceAllocationId).FirstOrDefault();
+            }
+            return null;
+        }
+
+
+        VersionResourceAllocation IResouceAllocationRepository.GetVersionByID(int? resourceAllocationId)
+        {
+            return _dbContext.VersionResourceAllocation.Where(r => r.ResourceAllocationId == resourceAllocationId).FirstOrDefault();
+        }
+
+        
     }
 }

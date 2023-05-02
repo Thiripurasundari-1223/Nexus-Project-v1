@@ -23,24 +23,21 @@ namespace ProjectManagement.DAL.Repository
         {
             this._dbContext = dbContext;
         }
-        public ChangeRequest GetByID(int pChangeRequestId)
-        {
-            return _dbContext.ChangeRequest.Where(x => x.ChangeRequestId == pChangeRequestId).FirstOrDefault();
-        }
-        public List<ChangeRequestView> GetChangeRequestDetailByProjectId(int pProjectId)
+      
+      /*  public List<ChangeRequestView> GetChangeRequestDetailByProjectId(int pProjectId)
         {
             return GetChangeRequestList(pProjectId: pProjectId);
-        }
+        }*/
         public List<ChangeRequestType> GetAllChangeRequestType()
         {
             return _dbContext.ChangeRequestType.ToList();
         }
-        public ChangeRequestView GetChangeRequestDetailById(int pChangeRequestId)
+     /*   public ChangeRequestView GetChangeRequestDetailById(int pChangeRequestId)
         {
             var CRDetails = GetChangeRequestList(pChangeRequestId: pChangeRequestId).AsQueryable().FirstOrDefault();
             return CRDetails == null ? new ChangeRequestView() : CRDetails;
-        }
-        private List<ChangeRequestView> GetChangeRequestList(int pProjectId = 0, int pChangeRequestId = 0)
+        }*/
+      /*  private List<ChangeRequestView> GetChangeRequestList(int pProjectId = 0, int pChangeRequestId = 0)
         {
             List<ChangeRequest> changeRequests = new List<ChangeRequest>();
             if (pProjectId > 0) changeRequests = _dbContext.ChangeRequest.Where(x => x.ProjectId == pProjectId).ToList();
@@ -110,7 +107,7 @@ namespace ProjectManagement.DAL.Repository
                 }
             }
             return changeRequestViews;
-        }
+        }*/
         public List<ProjectDetailCommentsList> GetChangeRequestCommentsById(int pChangeRequestId)
         {
             List<ProjectDetailCommentsList> ProjectDetailCommentsLists = new List<ProjectDetailCommentsList>();
@@ -132,26 +129,58 @@ namespace ProjectManagement.DAL.Repository
             }
             return ProjectDetailCommentsLists;
         }
-        public List<ProjectListView> GetAllActiveProjects()
+
+        List<ChangeRequestView> IChangeRequestDetailRepository.GetChangeRequestDetailByProjectId(int pProjectId)
         {
-            return _dbContext.ProjectDetails.Select(project =>
-                new ProjectListView
-                {
-                    ProjectId = project.ProjectId,
-                    ProjectStatus = project.ProjectStatus,
-                    AccountId = project.AccountId,
-                    AccountName = "",
-                    ProjectName = project.ProjectName,
-                    SPOCId = project.ProjectSPOC == null ? 0 : (int)project.ProjectSPOC,
-                    SPOC = "",
-                    ProjectStartDate = project.ProjectStartDate,
-                    ProjectEndDate = project.ProjectEndDate,
-                    ProjectStatusCode = project.ProjectStatusCode,
-                    ProjectStatusName = "",
-                    Logo = project.Logo,
-                    LogoBase64 = project.Logo != null ? Convert.ToBase64String(System.IO.File.ReadAllBytes(project.Logo)) : null
-                }
-                ).ToList();            
+            throw new NotImplementedException();
         }
+
+        List<ChangeRequestType> IChangeRequestDetailRepository.GetAllChangeRequestType()
+        {
+            throw new NotImplementedException();
+        }
+
+        ChangeRequestView IChangeRequestDetailRepository.GetChangeRequestDetailById(int pChangeRequestId)
+        {
+            throw new NotImplementedException();
+        }
+
+        List<ProjectDetailCommentsList> IChangeRequestDetailRepository.GetChangeRequestCommentsById(int pChangeRequestID)
+        {
+            throw new NotImplementedException();
+        }
+
+        List<ProjectListView> IChangeRequestDetailRepository.GetAllActiveProjects()
+        {
+            throw new NotImplementedException();
+        }
+
+        ChangeRequest IChangeRequestDetailRepository.GetByID(int pChangeRequestId)
+        {
+            return _dbContext.ChangeRequest.Where(x => x.ChangeRequestId == pChangeRequestId).FirstOrDefault();
+        }
+      
+
+        /* public List<ProjectListView> GetAllActiveProjects()
+{
+    return _dbContext.ProjectDetails.Select(project =>
+        new ProjectListView
+        {
+            ProjectId = project.ProjectId,
+            ProjectStatus = project.ProjectStatus,
+            AccountId = project.AccountId,
+            AccountName = "",
+            ProjectName = project.ProjectName,
+            SPOCId = project.ProjectSPOC == null ? 0 : (int)project.ProjectSPOC,
+            SPOC = "",
+            ProjectStartDate = project.ProjectStartDate,
+            ProjectEndDate = project.ProjectEndDate,
+            ProjectStatusCode = project.ProjectStatusCode,
+            ProjectStatusName = "",
+            Logo = project.Logo,
+            LogoBase64 = project.Logo != null ? Convert.ToBase64String(System.IO.File.ReadAllBytes(project.Logo)) : null
+        }
+        ).ToList();            
+}*/
     }
 }

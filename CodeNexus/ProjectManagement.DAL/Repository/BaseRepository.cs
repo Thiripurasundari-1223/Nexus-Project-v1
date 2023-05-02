@@ -1,4 +1,5 @@
 ﻿using ProjectManagement.DAL.DBContext;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -27,7 +28,14 @@ namespace ProjectManagement.DAL.Repository
         }
         public virtual T Get(int id)
         {
-            return dbContext.Set<T>().Find(id);
+            try
+            {
+                return dbContext.Set<T>().Find(id);
+            }catch (Exception ex)
+            {
+                throw ex;
+            }
+            return null;
         }
         public virtual IEnumerable<T> GetAll()
         {
@@ -35,7 +43,15 @@ namespace ProjectManagement.DAL.Repository
         }
         public virtual async Task SaveChangesAsync()
         {
-            await dbContext.SaveChangesAsync();
+            try
+            {
+                await dbContext.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+           
         }
         public virtual void Update(T entity)
         {

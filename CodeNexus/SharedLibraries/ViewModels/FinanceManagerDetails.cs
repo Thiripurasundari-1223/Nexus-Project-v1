@@ -13,6 +13,5 @@ namespace SharedLibraries.ViewModels
         public string FinanceEmail { get; set; }
         public string CreatedByEmailId { get; set; }
         public string AccountManagerEmailId { get; set; }
-
     }
 }

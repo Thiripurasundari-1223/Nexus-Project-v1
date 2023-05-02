@@ -3,11 +3,13 @@ using SharedLibraries.Models.Projects;
 using SharedLibraries.ViewModels;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace ProjectManagement.DAL.Repository
 {
     public interface IProjectDetailCommentsRepository : IBaseRepository<ProjectDetailComments>
     {
+        Task Add(VersionProjectDetailComments versionProjectDetailComments);
         ProjectDetailComments GetByID(int pID);
         List<ProjectDetailCommentsList> GetProjectCommentsByProjectId(int pProjectDetailID);
     }
@@ -22,13 +24,13 @@ namespace ProjectManagement.DAL.Repository
         public List<ProjectDetailCommentsList> GetProjectCommentsByProjectId(int pProjectDetailID)
         {
             List<ProjectDetailCommentsList> ProjectDetailCommentsLists = new List<ProjectDetailCommentsList>();
-            List<ProjectDetailComments> ProjectDetailComments = dbContext.ProjectDetailComments.Where(x => x.ProjectDetailId == pProjectDetailID).ToList();
+            List<ProjectDetailComments> ProjectDetailComments = dbContext.ProjectDetailComments.Where(x => x.ProjectId == pProjectDetailID).ToList();
             foreach (ProjectDetailComments accComments in ProjectDetailComments.OrderByDescending(x => x.ProjectDetailCommentId))
             {
                 ProjectDetailCommentsList ProjectDetailCommentsList = new ProjectDetailCommentsList
                 {
                     ProjectDetailCommentId = accComments.ProjectDetailCommentId,
-                    ProjectDetailId = accComments.ProjectDetailId,
+                    ProjectDetailId = accComments.ProjectId,
                     CreatedByName ="",
                     Comments = accComments.Comments,
                     CreatedBy = accComments.CreatedBy,
@@ -39,6 +41,19 @@ namespace ProjectManagement.DAL.Repository
                 ProjectDetailCommentsLists.Add(ProjectDetailCommentsList);
             }
             return ProjectDetailCommentsLists;
+        }
+
+        Task IProjectDetailCommentsRepository.Add(VersionProjectDetailComments versionProjectDetailComments)
+        {
+            var data =  dbContext.VersionProjectDetailComments.Add(versionProjectDetailComments);
+            return null;
+        }
+
+       
+
+        List<ProjectDetailCommentsList> IProjectDetailCommentsRepository.GetProjectCommentsByProjectId(int pProjectDetailID)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }
