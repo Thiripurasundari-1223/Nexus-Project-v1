@@ -1,0 +1,6 @@
+USE [PMSNexus_Projects]
+IF EXISTS (SELECT 1 FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME='ChangeRequest' AND COLUMN_NAME = 'ChangeRequestStatus')
+BEGIN
+	ALTER TABLE [dbo].[ChangeRequest] ALTER COLUMN ChangeRequestStatus [varchar](2000) NULL
+END
+GO

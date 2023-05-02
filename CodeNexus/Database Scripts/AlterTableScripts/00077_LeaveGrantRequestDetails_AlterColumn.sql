@@ -1,0 +1,7 @@
+USE [PMSNexus_Leaves]
+GO
+IF  EXISTS (SELECT 1 FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME='LeaveGrantRequestDetails' AND COLUMN_NAME = 'NumberOfDay')
+BEGIN
+	ALTER TABLE LeaveGrantRequestDetails ALTER COLUMN NumberOfDay decimal(18,2)
+END
+GO

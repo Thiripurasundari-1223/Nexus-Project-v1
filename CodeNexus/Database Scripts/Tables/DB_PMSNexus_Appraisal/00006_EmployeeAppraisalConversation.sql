@@ -1,0 +1,16 @@
+USE [PMSNexus_Appraisal]
+Go
+IF NOT EXISTS(SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME='EmployeeAppraisalConversation')
+
+CREATE TABLE EmployeeAppraisalConversation (
+  COMMENT_ID int identity(1,1) NOT NULL,
+  APP_CYCLE_ID int NULL,
+  EMPLOYEE_ID int NULL,
+  COMMENT nvarchar(3000) NULL,
+  CREATED_BY int NULL,
+  CREATED_DATE datetime NULL,
+  UPDATED_BY int NULL,
+  UPDATED_DATE datetime NULL,
+  PRIMARY KEY (COMMENT_ID)
+) 
+GO

@@ -1,0 +1,22 @@
+USE [PMSNexus_Leaves]
+GO
+IF  EXISTS (SELECT 1 FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME='LeaveEntitlement' AND COLUMN_NAME = 'MaxLeaveAvailedDays')
+BEGIN
+	ALTER TABLE LeaveEntitlement ALTER COLUMN MaxLeaveAvailedDays decimal(18,2)
+END
+GO
+IF  EXISTS (SELECT 1 FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME='LeaveEntitlement' AND COLUMN_NAME = 'MaximumCarryForwardDays')
+BEGIN
+	ALTER TABLE LeaveEntitlement ALTER COLUMN MaximumCarryForwardDays decimal(18,2)
+END
+GO
+IF  EXISTS (SELECT 1 FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME='LeaveEntitlement' AND COLUMN_NAME = 'MaximumReimbursementDays')
+BEGIN
+	ALTER TABLE LeaveEntitlement ALTER COLUMN MaximumReimbursementDays decimal(18,2)
+END
+GO
+
+
+
+
+

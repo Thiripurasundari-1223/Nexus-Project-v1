@@ -1,0 +1,6 @@
+USE [PMSNexus_Leaves]
+IF NOT EXISTS (SELECT 1 FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME='LeaveRestrictions' AND COLUMN_NAME = 'LeaveTypeId')
+BEGIN
+	ALTER TABLE [dbo].[LeaveRestrictions] ADD LeaveTypeId int NULL
+END
+GO

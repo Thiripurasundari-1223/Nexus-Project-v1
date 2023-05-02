@@ -1,0 +1,27 @@
+USE [PMSNexus_Accounts]
+
+IF Not EXISTS (SELECT 1 FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME='CustomerContactDetails' AND COLUMN_NAME = 'DesignationName')
+BEGIN
+  ALTER TABLE CustomerContactDetails Add DesignationName [nvarchar](500) NULL
+END
+
+IF Not EXISTS (SELECT 1 FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME='CustomerContactDetails' AND COLUMN_NAME = 'CountryId')
+BEGIN
+  ALTER TABLE CustomerContactDetails Add CountryId int NULL
+END
+IF Not EXISTS (SELECT 1 FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME='CustomerContactDetails' AND COLUMN_NAME = 'AddressDetail')
+BEGIN
+  ALTER TABLE CustomerContactDetails Add AddressDetail [nvarchar](2000) NULL
+END
+IF Not EXISTS (SELECT 1 FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME='CustomerContactDetails' AND COLUMN_NAME = 'CityName')
+BEGIN
+  ALTER TABLE CustomerContactDetails Add CityName [nvarchar](500) NULL
+END
+IF Not EXISTS (SELECT 1 FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME='CustomerContactDetails' AND COLUMN_NAME = 'StateId')
+BEGIN
+  ALTER TABLE CustomerContactDetails Add StateId int NULL
+END
+IF Not EXISTS (SELECT 1 FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME='CustomerContactDetails' AND COLUMN_NAME = 'Postalcode')
+BEGIN
+  ALTER TABLE CustomerContactDetails Add Postalcode [nvarchar](20) NULL
+END

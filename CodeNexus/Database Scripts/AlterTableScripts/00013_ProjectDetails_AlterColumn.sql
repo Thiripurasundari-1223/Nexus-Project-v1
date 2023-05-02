@@ -1,0 +1,6 @@
+USE [PMSNexus_Projects]
+IF NOT EXISTS (SELECT 1 FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME='ProjectDetails' AND COLUMN_NAME = 'FormattedProjectId')
+BEGIN
+	ALTER TABLE [dbo].ProjectDetails ADD FormattedProjectId varchar(250) NULL
+END
+GO

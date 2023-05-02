@@ -1,0 +1,7 @@
+USE [PMSNexus_Projects]
+IF NOT EXISTS (SELECT 1 FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME='ResourceAllocation' AND COLUMN_NAME = 'IsSPOC')
+BEGIN
+    
+   ALTER TABLE ResourceAllocation Add IsSPOC bit NULL;
+   ALTER TABLE ResourceAllocation Add IsActive bit NULL;
+END

@@ -1,0 +1,8 @@
+USE [PMSNexus_Timesheets]
+
+Go
+IF NOT EXISTS (SELECT 1 FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME='TimesheetLog' AND COLUMN_NAME = 'WorkItem')
+BEGIN
+	ALTER TABLE [dbo].[TimesheetLog] ADD WorkItem [nvarchar](max) NULL
+END
+GO

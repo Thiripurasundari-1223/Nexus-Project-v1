@@ -1,0 +1,5 @@
+USE [PMSNexus_Leaves]
+GO
+ALTER TABLE LeaveApplicable ALTER COLUMN Gender VARCHAR(500)
+ALTER TABLE LeaveApplicable ALTER COLUMN MaritalStatus VARCHAR(500)
+GO

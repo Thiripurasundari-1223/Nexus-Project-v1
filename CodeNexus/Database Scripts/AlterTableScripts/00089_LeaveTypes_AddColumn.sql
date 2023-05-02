@@ -1,0 +1,6 @@
+USE [PMSNexus_Leaves]
+IF NOT EXISTS (SELECT 1 FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME='LeaveTypes' AND COLUMN_NAME = 'AllowTimesheet')
+BEGIN
+	ALTER TABLE [dbo].[LeaveTypes] ADD [AllowTimesheet] [bit] NULL 
+END
+GO

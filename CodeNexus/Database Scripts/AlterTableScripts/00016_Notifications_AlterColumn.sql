@@ -1,0 +1,6 @@
+USE [PMSNexus_Notifications]
+IF NOT EXISTS (SELECT 1 FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME='Notifications' AND COLUMN_NAME = 'Data')
+BEGIN
+	ALTER TABLE [dbo].[Notifications] ADD Data NVarchar(Max) NULL
+END
+GO

@@ -1,0 +1,22 @@
+USE [PMSNexus_Leaves]
+IF NOT EXISTS (SELECT 1 FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME='LeaveApplicable' AND COLUMN_NAME = 'Gender_Male')
+BEGIN
+	ALTER TABLE [dbo].[LeaveApplicable] ADD [Gender_Male] [bit] NULL
+END
+IF NOT EXISTS (SELECT 1 FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME='LeaveApplicable' AND COLUMN_NAME = 'Gender_Female')
+BEGIN
+	ALTER TABLE [dbo].[LeaveApplicable] ADD [Gender_Female] [bit] NULL
+END
+IF NOT EXISTS (SELECT 1 FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME='LeaveApplicable' AND COLUMN_NAME = 'Gender_Others')
+BEGIN
+	ALTER TABLE [dbo].[LeaveApplicable] ADD [Gender_Others] [bit] NULL
+END
+IF NOT EXISTS (SELECT 1 FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME='LeaveApplicable' AND COLUMN_NAME = 'MaritalStatus_Single')
+BEGIN
+	ALTER TABLE [dbo].[LeaveApplicable] ADD [MaritalStatus_Single] [bit] NULL
+END
+IF NOT EXISTS (SELECT 1 FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME='LeaveApplicable' AND COLUMN_NAME = 'MaritalStatus_Married')
+BEGIN
+	ALTER TABLE [dbo].[LeaveApplicable] ADD [MaritalStatus_Married] [bit] NULL
+END
+GO

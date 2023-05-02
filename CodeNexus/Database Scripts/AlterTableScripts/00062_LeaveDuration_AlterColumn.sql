@@ -1,0 +1,7 @@
+USE [PMSNexus_Leaves]
+GO
+IF EXISTS (SELECT 1 FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME='LeaveDuration' AND COLUMN_NAME = 'AppConstantId')
+BEGIN
+	EXEC sp_RENAME 'LeaveDuration.AppConstantId','DurationId','COLUMN'
+END
+GO

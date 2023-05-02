@@ -1,0 +1,4 @@
+
+USE [PMSNexus_Accounts]
+GO
+ALTER TABLE AccountDetails DROP COLUMN ContactPersonFirstName, ContactPersonLastName,ContactPersonPhoneNumber,ContactPersonEmailAddress

@@ -1,0 +1,53 @@
+USE [PMSNexus_Leaves]
+GO
+IF  EXISTS (SELECT 1 FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME='LeaveRestrictions' AND COLUMN_NAME = 'BalanceDisplayedId')
+BEGIN
+	ALTER TABLE LeaveRestrictions ALTER COLUMN BalanceDisplayedId decimal(18,2)
+END
+GO
+IF  EXISTS (SELECT 1 FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME='LeaveRestrictions' AND COLUMN_NAME = 'DaysInAdvance')
+BEGIN
+	ALTER TABLE LeaveRestrictions ALTER COLUMN DaysInAdvance decimal(18,2)
+END
+GO
+IF  EXISTS (SELECT 1 FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME='LeaveRestrictions' AND COLUMN_NAME = 'AllowRequestNextDays')
+BEGIN
+	ALTER TABLE LeaveRestrictions ALTER COLUMN AllowRequestNextDays decimal(18,2)
+END
+GO
+IF  EXISTS (SELECT 1 FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME='LeaveRestrictions' AND COLUMN_NAME = 'DatesAppliedAdvance')
+BEGIN
+	ALTER TABLE LeaveRestrictions ALTER COLUMN DatesAppliedAdvance decimal(18,2)
+END
+GO
+IF  EXISTS (SELECT 1 FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME='LeaveRestrictions' AND COLUMN_NAME = 'MaximumLeavePerApplication')
+BEGIN
+	ALTER TABLE LeaveRestrictions ALTER COLUMN MaximumLeavePerApplication decimal(18,2)
+END
+GO
+IF  EXISTS (SELECT 1 FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME='LeaveRestrictions' AND COLUMN_NAME = 'MinimumGapTwoApplication')
+BEGIN
+	ALTER TABLE LeaveRestrictions ALTER COLUMN MinimumGapTwoApplication decimal(18,2)
+END
+GO
+IF  EXISTS (SELECT 1 FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME='LeaveRestrictions' AND COLUMN_NAME = 'MaximumConsecutiveDays')
+BEGIN
+	ALTER TABLE LeaveRestrictions ALTER COLUMN MaximumConsecutiveDays decimal(18,2)
+END
+GO
+IF  EXISTS (SELECT 1 FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME='LeaveRestrictions' AND COLUMN_NAME = 'EnableFileUpload')
+BEGIN
+	ALTER TABLE LeaveRestrictions ALTER COLUMN EnableFileUpload decimal(18,2)
+END
+GO
+IF  EXISTS (SELECT 1 FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME='LeaveRestrictions' AND COLUMN_NAME = 'MinimumNoOfApplicationsPeriod')
+BEGIN
+	ALTER TABLE LeaveRestrictions ALTER COLUMN MinimumNoOfApplicationsPeriod decimal(18,2)
+END
+GO
+
+
+
+
+
+

@@ -1,0 +1,6 @@
+USE [PMSNexus_Leaves]
+IF NOT EXISTS (SELECT 1 FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME='Leaves' AND COLUMN_NAME = 'LeaveRejectionReasonId')
+BEGIN
+	ALTER TABLE [dbo].[Leaves] ADD LeaveRejectionReasonId int NULL
+END
+GO

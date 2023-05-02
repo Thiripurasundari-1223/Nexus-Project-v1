@@ -1,0 +1,11 @@
+USE [PMSNexus_Accounts]
+
+IF Not EXISTS (SELECT 1 FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME='AccountChangeRequest' AND COLUMN_NAME = 'CreatedByName')
+BEGIN
+  ALTER TABLE AccountChangeRequest Add CreatedByName [nvarchar](500) NULL
+END
+
+IF Not EXISTS (SELECT 1 FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME='AccountComments' AND COLUMN_NAME = 'CreatedByName')
+BEGIN
+  ALTER TABLE AccountComments Add CreatedByName [nvarchar](500) NULL
+END

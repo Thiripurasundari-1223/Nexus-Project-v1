@@ -1,0 +1,10 @@
+USE [PMSNexus_Leaves]
+IF EXISTS (SELECT 1 FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME='LeaveEntitlement' AND COLUMN_NAME = 'RestrictLeaveApplicationDays')
+BEGIN
+	ALTER TABLE LeaveEntitlement DROP COLUMN RestrictLeaveApplicationDays
+END
+GO
+IF  EXISTS (SELECT 1 FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME='LeaveEntitlement' AND COLUMN_NAME = 'DocumentMandatoryDays')
+BEGIN
+	ALTER TABLE LeaveEntitlement DROP COLUMN DocumentMandatoryDays
+END

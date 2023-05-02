@@ -1,0 +1,6 @@
+USE [PMSNexus_Leaves]
+IF NOT EXISTS (SELECT 1 FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME='EmployeeLeaveDetails' AND COLUMN_NAME = 'AdjustmentDays')
+BEGIN
+	ALTER TABLE [dbo].[EmployeeLeaveDetails] ADD AdjustmentDays DECIMAL(18, 2) NULL
+END
+GO

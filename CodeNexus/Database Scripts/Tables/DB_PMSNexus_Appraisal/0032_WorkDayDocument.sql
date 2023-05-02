@@ -1,0 +1,19 @@
+USE [PMSNexus_Appraisal]
+GO
+
+IF NOT EXISTS(SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME='WorkDayDocument')
+BEGIN
+	CREATE TABLE [dbo].[WorkDayDocument](
+	[WorkDayDocumentId] [int] IDENTITY(1,1) NOT NULL,
+	[WorkDayDetailId] [int] NOT NULL,
+	[DocumentName] [VARCHAR](1000) NULL,
+	[DocumentPath] [VARCHAR](1000) NULL,
+	[CreatedOn] [datetime] NULL,
+	[CreatedBy] [int] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[WorkDayDocumentId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+END
+GO
