@@ -14,6 +14,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\CustomerOnBoarding.DAL\CustomerOnBoarding.DAL.csproj" />
+    <ProjectReference Include="..\IAM.DAL\IAM.DAL.csproj" />
+    <ProjectReference Include="..\Notification.DAL\Notifications.DAL.csproj" />
     <ProjectReference Include="..\SharedLibraries\SharedLibraries.csproj" />
   </ItemGroup>
 

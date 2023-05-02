@@ -10,11 +10,12 @@ namespace SharedLibraries.ViewModels.Projects
         public List<CurrencyType> ListOfCurrencyTypes { get; set; }
         public List<ProjectType> ListOfProjectTypes { get; set; }
         public List<Skillsets> ListOfRequiredSkillSets { get; set; }
-        public List<RateFrequency> ListOfRateFrequencys { get; set; }
+        public List<Frequency> ListOfFrequencys { get; set; }
         public List<Allocation> ListOfAllocations { get; set; }
         public List<StatusViewModel> ProjectStatusList { get; set; }
         public List<RoleName> ListOfRoleName { get; set; }
         public List<Designation> ListOfDesignation { get; set; }
         public List<BUAccountableForProject> BUAccountableForProjects { get; set; } 
+
     }
 }

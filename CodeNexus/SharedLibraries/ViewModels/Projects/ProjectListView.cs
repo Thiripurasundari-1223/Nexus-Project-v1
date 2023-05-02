@@ -31,6 +31,9 @@ namespace SharedLibraries.ViewModels
         public string ProjectStatus { get; set; }
         public string Comments { get; set; }
         public int DepartmentHeadId { get; set; }
+
+        public int BUManagerId { get; set; }
+        public int ProjectManagerOfficerId { get; set; }
     }
     public class ProjectManager
     {

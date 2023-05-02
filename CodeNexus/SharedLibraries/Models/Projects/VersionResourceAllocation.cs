@@ -3,10 +3,12 @@ using System.ComponentModel.DataAnnotations;
 
 namespace SharedLibraries.Models.Projects
 {
-    public class ResourceAllocation
+    public class VersionResourceAllocation
     {
         [Key]
-        public int ResourceAllocationId { get; set; }
+        public int VersionId { get; set; }
+        public string VersionName { get; set; }
+        public int? ResourceAllocationId { get; set; }
         public int? IterationID { get; set; }
         public int? EmployeeId { get; set; }
         public int? ProjectId { get; set; }
@@ -30,12 +32,5 @@ namespace SharedLibraries.Models.Projects
         public int? CreatedBy { get; set; }
         public DateTime? ModifiedOn { get; set; }
         public int? ModifiedBy { get; set; }
-
-    //    public string EmployeeName { get; set; }
-     //   public string ProjectName { get; set; }
-    //    public string RequiredSkillSet { get; set; }
-  //      public int? RateFrequencyId { get; set; }
-   //     public string RateFrequency { get; set; }
-   //     public string Allocation { get; set; }
     }
 }

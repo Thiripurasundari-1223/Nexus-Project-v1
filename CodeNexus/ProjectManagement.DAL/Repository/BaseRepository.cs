@@ -20,6 +20,7 @@ namespace ProjectManagement.DAL.Repository
         public virtual async Task AddAsync(T entity)
         {
             await dbContext.Set<T>().AddAsync(entity);
+
         }
         public virtual void Delete(T entity)
         {

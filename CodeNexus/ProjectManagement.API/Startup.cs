@@ -27,6 +27,10 @@ namespace ProjectManagement.API
             services.AddDbContext<PMDBContext>(options =>
                     options.UseSqlServer(this.Configuration.GetConnectionString("PMSNexus"))
             );
+
+          
+
+
             services.AddControllers();
             services.PMDIResolver();
             services.AddMemoryCache();

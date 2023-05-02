@@ -3,11 +3,13 @@ using System.ComponentModel.DataAnnotations;
 
 namespace SharedLibraries.Models.Projects
 {
-    public class ChangeRequest
+    public class VersionChangeRequest
     {
         [Key]
-        public int ChangeRequestId { get; set; }
-        public int? ProjectId { get; set; }
+        public int VersionId { get; set; }
+        public string VersionName { get; set; }
+        public int? ChangeRequestId { get; set; }
+        //public int? ProjectId { get; set; }
         public string ChangeRequestName { get; set; }
         public int? ChangeRequestTypeId { get; set; }
         public int? CurrencyId { get; set; }
@@ -24,6 +26,6 @@ namespace SharedLibraries.Models.Projects
         public DateTime? CreatedOn { get; set; }
         public int? CreatedBy { get; set; }
         public DateTime? ModifiedOn { get; set; }
-        public int? ModifiedBy { get; set; }        
+        public int? ModifiedBy { get; set; }
     }
 }

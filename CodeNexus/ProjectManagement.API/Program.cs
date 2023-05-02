@@ -29,5 +29,8 @@ namespace ProjectManagement.API
         //            config.AddJsonFile($"appsettings.{Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT")}.json");
         //        })
         //        .UseStartup<Startup>();
+   
+    
+    
     }
 }

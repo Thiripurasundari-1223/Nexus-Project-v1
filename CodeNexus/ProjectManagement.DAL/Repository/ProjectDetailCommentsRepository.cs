@@ -22,13 +22,13 @@ namespace ProjectManagement.DAL.Repository
         public List<ProjectDetailCommentsList> GetProjectCommentsByProjectId(int pProjectDetailID)
         {
             List<ProjectDetailCommentsList> ProjectDetailCommentsLists = new List<ProjectDetailCommentsList>();
-            List<ProjectDetailComments> ProjectDetailComments = dbContext.ProjectDetailComments.Where(x => x.ProjectDetailId == pProjectDetailID).ToList();
+            List<ProjectDetailComments> ProjectDetailComments = dbContext.ProjectDetailComments.Where(x => x.ProjectId == pProjectDetailID).ToList();
             foreach (ProjectDetailComments accComments in ProjectDetailComments.OrderByDescending(x => x.ProjectDetailCommentId))
             {
                 ProjectDetailCommentsList ProjectDetailCommentsList = new ProjectDetailCommentsList
                 {
                     ProjectDetailCommentId = accComments.ProjectDetailCommentId,
-                    ProjectDetailId = accComments.ProjectDetailId,
+                    ProjectDetailId = accComments.ProjectId,
                     CreatedByName ="",
                     Comments = accComments.Comments,
                     CreatedBy = accComments.CreatedBy,
